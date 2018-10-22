@@ -1,20 +1,23 @@
 $(document).ready(function() {
 
   var items = [];
-  // var listFoods = [];
 
   $("form#form1").submit(function(event) {
-
+    $(".item").empty();
+    
     items.push($("input#item").val());
 
     var listFoods = items.map(function(item) {
       return item.toUpperCase();
     });
 
-    listFoods.sort();//works up to this point
+    listFoods.sort();
 
-alert(listFoods);
-  $(".item").append("<li>" + listFoods[0] + "</li>");
+      console.log(list,listFoods);
+    listFoods.forEach(function(food){
+      $(".item").append("<li>" + food + "</li>");
+
+    });
     $("#hidden").show();
 
     event.preventDefault();
